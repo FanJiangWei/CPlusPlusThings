@@ -1,0 +1,94 @@
+#ifndef __NETNNIB_H__
+#define __NETNNIB_H__
+
+
+
+#include "Types.h"
+
+
+#if defined(STATIC_MASTER)
+enum {
+	DEV_SET_MODEID = 0,
+	DEV_GET_TEI_BYMAC,
+	DEV_SET_AREA,
+	DEV_SET_EDGE,
+	DEV_SET_CURVE,
+	DEV_GET_LISTNUM,
+	DEV_GET_ALL_BYSEQ,
+	DEV_GET_ALL_BYMAC,
+	DEV_GET_VAILD,
+	DEV_RESET_AREA,
+	DEV_APP_GET_LISTNUM,
+	DEV_SET_COLLECT,
+	DEV_SET_POWER_OFF,
+	DEV_RESET_POWER_OFF,
+	DEV_APP_SET_WHITESEQ,
+	DEV_GET_AREA,
+};
+
+
+extern U8 DeviceList_ioctl(uint32_t cmd,void *in_arg, void *out_arg);
+extern U8 DeviceList_ioctl_notsafe(uint32_t cmd,void *in_arg, void *out_arg);
+
+
+enum {
+    WHITE_GET_ONE_BYSEQ = 0,
+    WHITE_CLEAR_BYESEQ,
+    WHITE_CLEAR_ALL,
+    WHITE_GET_MACADDR,
+    WHITE_GET_METERINFO,
+    WHITE_GET_MDLID,
+    WHITE_GET_CNMADDR,
+    WHITE_GET_WRFTH,
+    WHITE_GET_SETRSLT,
+    WHITE_GET_GUIYUE,
+    WHITE_GET_PHASE,
+    WHITE_GET_LNERR,
+    WHITE_GET_IDSTATE,
+    WHITE_GET_RESULT,
+
+    WHITE_SET_MACADDR,
+    WHITE_SET_METERINFO,
+    WHITE_SET_MDLID,
+    WHITE_SET_CNMADDR,
+    WHITE_SET_WRFTH,
+    WHITE_SET_SETRSLT,
+    WHITE_SET_GUIYUE,
+    WHITE_SET_PHASE,
+    WHITE_SET_LNERR,
+    WHITE_SET_IDSTATE,
+    WHITE_SET_RESULT,
+};
+
+extern U8 WhiteList_ioctrl(uint32_t cmd,void *in_arg, void *out_arg);
+#endif
+
+enum {
+	NET_GET_SNID = 0,
+	NET_GET_TEI,
+	NET_GET_NODESTATE,
+	NET_GET_CCOADDR,
+	NET_GET_DVTYPE,
+	NET_GET_EDGE,
+	NET_GET_PWRTYPE,
+	NET_GET_TSTMODE,
+	NET_GET_BAND,
+	NET_SET_BAND,	
+	NET_SET_DVTYPE,
+    NET_SET_EDGE,
+	NET_SET_TSTMODE,
+	NET_SET_OFFLINE,
+	NET_SET_MACTYPE,
+
+
+};
+
+extern void net_nnib_ioctl(uint32_t cmd, void *arg);
+
+
+
+#endif
+
+
+
+

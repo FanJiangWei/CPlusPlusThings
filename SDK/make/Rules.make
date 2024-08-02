@@ -1,0 +1,70 @@
+# rules Makefile
+MAKE_USE_COLOR?=1
+
+ifeq ($(MAKE_USE_COLOR),1)
+CL_RED="\033[31;1m"
+CL_GREEN="\033[32;1m"
+CL_YELLOW="\033[33;1m"
+CL_BLUE="\033[34;1m"
+CL_MAGENTA="\033[35;1m"
+CL_CYAN="\033[36;1m"
+CL_WHITE="\033[37;1m"
+CL_END="\033[0m"
+else
+CL_RED=""
+CL_GREEN=""
+CL_YELLOW=""
+CL_BLUE=""
+CL_MAGENTA=""
+CL_CYAN=""
+CL_WHITE=""
+CL_END=""
+endif
+
+export CL_RED CL_GREEN CL_YELLOW CL_BLUE CL_MAGENTA CL_CYAN CL_WHITE CL_END
+
+SED=/bin/sed
+ECHO=/bin/echo -e
+CAT=/bin/cat
+MV=/bin/mv
+RM=/bin/rm -rf
+INSTALL=/usr/bin/install
+TOUCH=/bin/touch
+LN_HARD=ln
+LN=/bin/ln -sf
+CP=/bin/cp -rf
+
+export ECHO RM TOUCH CP LN LN_HARD INSTALL
+
+# prefix for command, show OR hide
+_P=@
+#_P=
+export _P
+
+HOST_COMPILE:=MFLAGS= MAKEFLAGS= MAKELEVEL=1 LANG=C LC_ALL=C CFLAGS= CC=gcc LDFLAGS=
+
+#PRJ_TOP_DIR := $(shell pwd)/..
+PRJ_TOP_DIR := ..
+PRJ_SRC_DIR := $(PRJ_TOP_DIR)/src
+PRJ_LIB_DIR := $(PRJ_TOP_DIR)/lib
+PRJ_LSP_DIR := $(PRJ_TOP_DIR)/lsp
+PRJ_SCRIPT_DIR=scripts
+#PRJ_OBJ_DIR=./bin
+PRJ_INC_DIR := $(PRJ_TOP_DIR)/src/include
+PRJ_SCH_DIR := $(PRJ_TOP_DIR)/src/Sch
+PRJ_BSP_DIR := $(PRJ_TOP_DIR)/src/Bsp
+
+PRJ_MAC_DIR := $(PRJ_TOP_DIR)/src/mac
+PRJ_DATALINK_DIR := $(PRJ_TOP_DIR)/src/datalink
+PRJ_APP_DIR := $(PRJ_TOP_DIR)/src/app
+PRJ_SI4438_DIR := $(PRJ_TOP_DIR)/src/Si4438
+
+
+export PRJ_TOP_DIR PRJ_SRC_DIR PRJ_CONFIG_DIR PRJ_SCRIPT_DIR PRJ_OBJ_DIR PRJ_INC_DIR PRJ_MAC_DIR PRJ_DATALINK_DIR PRJ_APP_DIR PRJ_SI4438_DIR PRJ_SCH_DIR PRJ_BSP_DIR
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+
+
+# vim:ft=make
