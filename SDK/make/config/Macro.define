@@ -1,9 +1,0 @@
-# macro define for makefile
-define done
-	${_P}${ECHO} ${CL_CYAN}`pwd`${CL_END} $@:done$(1)
-endef
-
-qstrip=$(strip $(subst ",,$(1)))
-qfind=$(shell find `find ${1} -name ${2} -type d` -type d)
-
-# vim:ft=make
